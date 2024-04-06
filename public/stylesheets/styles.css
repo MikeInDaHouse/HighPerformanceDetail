@@ -5,113 +5,197 @@
 
 
 body {
+  padding: 0;
   margin: 0;
-  padding-top: 15rem;
   overflow-x: hidden;
   height: 100vh;
+  background-color: #000;
+}
+
+@media (max-width: 400px) {
+  body {
+    padding: 0;
+    overflow-x: hidden;
+    height: 100vh;
+    background-color: #000;
+  }
 }
 
 
-
-/* NAVBAR ----------------------------------------------------------------------------------------------------------------------------*/
-
-.nav{ 
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  background-color: #222;
-  opacity: 0.9;
-  transition: all .3s ease-in-out;
-  z-index: 9999;
-  padding-bottom: 5px;
+@media (max-width: 800px) {
+  body {
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+    height: 100vh;
+    background-color: #000;
+  }
 }
 
-.nav .container {
+
+/* Navbar Section --------------------------------------------------------------------------------------------------------------  */
+
+
+.navbar {
   display: flex;
+  position: relative;
   /* justify-content: space-between; */
   align-items: center;
-  transition: all .3s ease-in-out;
-  padding: 10px;
-}
-
-nav ul {
-  display: flex;
-  list-style-type: none;
-  align-items: center;
-  justify-content: center;
-  font-size: 20px;
-  font-family: "lobster", sans-serif;
-  padding: 0;
+  background-color: #333;
+  color: white;
 }
 
 
+.brand-title {
+  font-size: 1.5rem;
+  margin: .5rem;
+  padding-right: 10rem;
 
-
-.nav.active {
-  background-color: #fff;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
-.nav.active a {
-color: #000;
-}
-
-.nav.active .container{
- padding: 10px 0;
-}
-
-.nav a.current, .nav a:hover{
-  color: #5d5a5a;
-  font-weight: bold;
-}
-
-li {
-  color: bisque;
-}
-
-.nav a {
-  color: #fff;
+.title {
   text-decoration: none;
-  padding: 7px 15px;
-  transition: all .3s ease-in-out;
+  font-family: "Bungee Spice", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+
+}
+
+.navbar-links {
+  height: 100%;
+}
+
+.navbar-links ul {
+  display: flex;
+   
+}
+
+.navbar-links li {
+  list-style: none;
+}
+
+.navbar-links li a {
+  text-decoration: none;
+  color: white;
+  padding: 1rem;
 }
 
 .toggle-button {
   position: absolute;
-  top: .7rem;
+  top: .75rem;
   right: 1rem;
   display: none;
   flex-direction: column;
   justify-content: space-between;
   width: 30px;
-  height: 20px;
+  height: 21px;
 }
 
+.toggle-button .bar {
+  height: 3px;
+  width: 100%;
+  background-color: white;
+  border-radius: 10px;
+}
+
+
+#bar2{
+  margin: 0;
+}
+
+
+
+@media (max-width: 400px) {
+  .navbar {
+      flex-direction: column;
+      align-items: flex-start;
+      width: 100%;
+      margin-bottom: 100px;
+  }
+
+  .toggle-button {
+      display: flex;
+  }
+
+  .navbar-links {
+      display: none;
+      width: 100%;
+  }
+
+  .navbar-links ul {
+      width: 100%;
+      flex-direction: column;
+      margin: 0;
+  }
+
+  .navbar-links ul li {
+      text-align: center;
+  }
+
+  .navbar-links ul li a {
+      padding: .5rem 1rem;
+  }
+
+  .navbar-links.active {
+      display: flex;
+  }
+
+  .wrapper {
+    padding: 20px 20px;
+  }
+
+  .navbar-logo{
+    width: 55px;
+    height: 55px;
+  }
+}
 
 @media (max-width: 800px) {
-  .nav {
+  .navbar {
+      flex-direction: column;
       align-items: flex-start;
+      width: 100%;
   }
 
-  img {
-    display: none;
+  
+
+  .toggle-button {
+      display: flex;
+      width: 60px;
+      height: 50px;
   }
 
-  ul {
-    width: 100%;
-    text-align: center;
-    padding: 10px 20px 0 10px;
-    justify-content: center space-between;
-}
+  .navbar-links {
+      display: none;
+      width: 100%;
+  }
+
+  .navbar-links ul {
+      width: 100%;
+      flex-direction: column;
+  }
+
+  .navbar-links ul li {
+      text-align: center;
+  }
+
+  .navbar-links ul li a {
+      padding: .5rem 1rem;
+  }
+
+  .navbar-links.active {
+      display: flex;
+  }
+
+  .wrapper {
+    padding: 20px 20px;
+  }
 }
 
 
 /* Navbar Buttons --------------------------------------------------------------------------------------------------------------  */
 
-@import url('https://fonts.googleapis.com/css?family=Poppins:900i');
-
-
+ @import url('https://fonts.googleapis.com/css?family=Poppins:900i');
 
 
 
@@ -121,6 +205,7 @@ li {
   display: inline-block;
   padding-left: 50px;
   padding-right: 50px;
+  
 }
 
 .cta {
@@ -134,6 +219,7 @@ li {
     transition: 1s;
     box-shadow: 6px 6px 0 black;
     transform: skewX(-15deg);
+    
 }
 
 .cta:focus {
@@ -163,9 +249,10 @@ li {
     width: 20px;
     margin-left: 30px;
     position: relative;
-    top: 12%;
-  }
-  
+  }  
+
+
+   
 /**************SVG****************/
 
 path.one {
@@ -190,9 +277,8 @@ path.two {
 .cta:hover path.two {
     transform: translateX(0%);
     animation: color_anim 1s infinite 0.4s;
-}
+} 
 
-/* SVG animations */
 
 @keyframes color_anim {
     0% {
@@ -206,57 +292,86 @@ path.two {
     }
 }
 
-/* 
-Car Animation Section --------------------------------------------------------------------------------------------------------------*/
+@media(max-width: 400px) {
+  .wrapper {
+    padding: 10px 10px;
+  }
+}
 
 
 
-#car-wash-animation {
+
+/* Car Animation Section --------------------------------------------------------------------------------------------------------------*/ */
+
+.video-header{
   position: relative;
-  margin-top: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 10rem;
   width: 100%;
-  height: 15rem;
-  margin-bottom: 350px;
+  overflow: hidden;
 }
 
-.car-wash-text {
+.video-background{
   position: absolute;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  font-family: 'Muli', sans-serif;
-  font-size: 1.5rem;
-  color: #f5eeee;
-  padding-bottom: 10rem;
+  top: 0;
+  left: 0;
+  height: 600px;
+  width: 100%;
+  object-fit: cover;
+
 }
 
-h1 {
-  position: relative;
-  font-size: 2rem;
-  color: #fefefd;
-  font-family: 'Muli', sans-serif;
-  font-size: 80px;
-  justify-content: center;
+.header-content{
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   text-align: center;
-  padding-top: 10rem;
-  padding-bottom: 10px;
-  z-index: 1000;
-
+  color: white;
+  padding-top: 100px;
 }
 
 
-/* Header Button ------------------------------------------------------------------------------------------------------------------------*/
+
+.header-content h1{
+  font-size: 90px;
+  margin-bottom: 20px;
+  font-family: "Racing Sans One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+
+@media (max-width: 800px) {
+  .header-content h1{
+    font-size: 30px;
+  }
+
+  .video-header{
+    height: 400px;
+  }
+  
+  .header-content{
+    padding-top: 400px;
+  }
+
+
+  video{
+    display: none;
+  }
+
+.navbar-links-active ul{
+    margin: 0;
+  }
+}
+
+/* Scedule Now Button ------------------------------------------------------------------------------------------------------------------------*/
 
 .schedule-button {
   padding-top: 50px;
 }
 
-.schedule-now {
+.scedule-now {
+  padding-top: 20px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -272,10 +387,12 @@ h1 {
 }
 
 .effect1 {
+  font-weight: 600;
   color: hsl(0, 100%, 100%);
   text-decoration: none;
-  font-family: sans-serif;
-  font-size: 25px;
+  font-family: "Racing Sans One", sans-serif;
+  font-style: normal;
+  font-weight: 100;
   position: relative;
   padding: 10px 50px 10px 20px;
 
@@ -289,7 +406,7 @@ h1 {
 
       -ms-transform: scale(3);
 
-          transform: scale(3); /*change scale(3) to scale(1)*/
+          transform: scale(3); 
 }
 
 .effect1 .bg {
@@ -358,67 +475,157 @@ h1 {
 
 .effect1:hover .bg:after{
   top: 6px;
+} 
+
+
+
+@media (max-width: 400px) {
+  .effect1 {
+    width: 60px;
+    margin-top: 30px;
+    font-size: 10px;
+  }
+
+  .bg{
+    display: none;
+  }
 }
 
-/*about section ----------------------------------------------------------------------------------------------------------------*/
+@media (max-width: 600px) {
+  .wrapper{
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+}
+
+@media (max-width: 800px) {
+  .wrapper{
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+}
+
+
+/* ABOUT SECTION ------------------------------------------------------------------------------------------------------------------------*/ */
 
 #about{
   width: 100%;
-  background-color: black;
-  margin-top: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  margin-bottom: 200px;
+}
+
+.img-div{
+  display: grid;
+  place-items: center;
 }
 
 .logo{
-  padding-top: 100px;
-  justify-content: center;
-}
-
-#about-text {
+  display: flex;
   padding-top: 50px;
-  padding-bottom: 200px;
-  justify-content: center;
-  align-items: center;
-  background-color: black;
+  width: 600px;
   
 }
 
-#about-text h3{
-  text-align: center;
+
+h2{
   color: white;
   font-size: 3rem;
-  font-family: 'Muli', sans-serif;
-  
+  text-align: center;
+  font-family: "Racing Sans One", sans-serif;
+  font-weight: 400;
+
 }
 
-
-#about-text p{
-  line-height: 40px;
+ .about-text p{
   color: white;
-  font-size: 20px;
-  font-family: 'Muli', sans-serif;
-  padding-top: 50px;
-  padding-right: 30px;
-  padding-bottom: 50px;
-  padding-left: 80px;
+  line-height: 50px;
+  font-size: 25px;
+  font-family: "Kanit", sans-serif;
+  font-weight: 400;
+  text-align: center;
+  padding-left: 20px;
+  padding-right: 20px;
+ }
 
-}
+
+ @media (max-width: 600px) {
+  .logo{
+    width: 400px;
+  }
+
+  #about{
+    padding-top: 100px;
+    }
+
+  .about-text p{
+    font-size: 20px;
+    line-height: 30px;
+  }
+ }
+
+ @media (max-width: 400px) {
+  .logo{
+    width: 200px;
+  }
+
+  #about{
+    padding-top: 100px;
+    }
+
+  .about-text p{
+    font-size: 20px;
+    line-height: 30px;
+  }
+ }
+
+
 
 /* Card Section /  individual services section--------------------------------------------------------------------------------------------------------------------*/
 
 
-.Basic-cleaning{
+.Individual-services{
   padding-top: 100px;
   padding-bottom: 100px;
+
+}
+
+#Individual-services h1{
+  font-size: 5rem;
+  text-align: center;
+  color: white;
+  font-family: "Racing Sans One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+#Basic-cleaning h1{
+  font-size: 5rem;
+  text-align: center;
+  color: white;
+  font-family: "Racing Sans One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.full-detail-h1{
+  font-size: 5rem;
+  text-align: center;
+  color: white;
+  font-family: "Racing Sans One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 #cards p{
   text-align: center;
   color: white;
   font-size: 1.5rem;
-  font-family: 'Muli', sans-serif;
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 :root {
@@ -441,13 +648,10 @@ h1 {
   padding-top: 120px
 }
 
-body {
-  background-color: var(--black);
-}
+
 
 .main {
   margin-left: 1rem;
-  margin-right: 1rem;
 }
 
 .detail-details {
@@ -460,9 +664,18 @@ body {
   flex-wrap: wrap;
   list-style: none;
   margin: 0;
-  padding: 0;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  padding-left: 0px;
+  padding-right: 0;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1rem;
+  justify-content: center;
+
+}
+
+#cards{
+  padding-bottom: 500px;
 }
 
 .cards_item {
@@ -557,7 +770,11 @@ body {
   margin-right: 0.05em;
 }
 
-@media (min-width: 480px) {
+@media (min-width: 400px) {
+  .individual-services-h1{
+    font-size: 40px;
+  }
+
   .card_text {
     overflow: auto;
     max-height: 20rem;
@@ -700,13 +917,47 @@ body {
 
 }
 
+
+
 #Contact h1{
-  font-size: 2rem;
+  font-size: 3rem;
+  color: white;
 }
 
 #Contact p{
   color: white;
   font-size: 1.5rem;
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+}
+
+@media (max-width: 400px){
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .email{
+    padding: 0;
+  }
+  .phone-number{
+    padding: 0;
+  }
+}
+
+
+@media (max-width: 600px){
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .email{
+    padding: 0;
+  }
+  .phone-number{
+    padding: 0;
+  }
 }
 
 /* Footer ---------------------------------------------------------------------------------------------------------------------------*/
@@ -718,8 +969,8 @@ body {
   text-align: center;
   background-color: #000;
   justify-content: center;
-  
   width: 100%;
+
  }
 
  #footer h3 {

@@ -8,6 +8,8 @@
     });
   });
 
+
+
   document.addEventListener("DOMContentLoaded", function() {
     var button = document.getElementById("Basic-cleaning-button");
     var section = document.getElementById("Basic-cleaning");
@@ -17,6 +19,8 @@
     });
   });
 
+
+
   document.addEventListener("DOMContentLoaded", function() {
     var button = document.getElementById("Full-detal-button");
     var section = document.getElementById("Full-detail");
@@ -25,6 +29,9 @@
       section.scrollIntoView({ behavior: "smooth" });
     });
   });
+
+
+
 
   document.addEventListener("DOMContentLoaded", function() {
     var button = document.getElementById("Contact-button");
@@ -36,4 +43,9 @@
   });
 
 
- 
+ const toggleButton = document.getElementsByClassName('toggle-button')[0]
+const navbarLinks = document.getElementsByClassName('navbar-links')[0]
+
+toggleButton.addEventListener('click', () => {
+  navbarLinks.classList.toggle('active')
+})
